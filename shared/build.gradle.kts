@@ -7,6 +7,10 @@ plugins {
 kotlin {
     targetHierarchy.default()
 
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
+    }
+
     android {
         compilations.all {
             kotlinOptions {
